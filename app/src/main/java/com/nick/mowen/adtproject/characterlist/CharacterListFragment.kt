@@ -3,7 +3,6 @@ package com.nick.mowen.adtproject.characterlist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.nick.mowen.adtproject.R
 import com.nick.mowen.adtproject.databinding.FragmentCharacterListBinding

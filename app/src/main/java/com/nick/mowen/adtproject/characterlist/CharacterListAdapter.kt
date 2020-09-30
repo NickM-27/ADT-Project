@@ -10,12 +10,10 @@ import com.nick.mowen.adtproject.character.Character
 import com.nick.mowen.adtproject.databinding.ViewHolderCharacterBinding
 import com.nick.mowen.adtproject.skeleton.AbstractActivity
 
-class CharacterListAdapter(private val context: AbstractActivity) : ListAdapter<Character, RecyclerView.ViewHolder>(Character.DIFF_CALLBACK) {
+class CharacterListAdapter(private val context: AbstractActivity, private val characterListPresenter: CharacterListPresenter) : ListAdapter<Character, RecyclerView.ViewHolder>(Character.DIFF_CALLBACK) {
 
     private val layoutInflater: LayoutInflater by lazy { LayoutInflater.from(context) }
-    private val onClick: (Int) -> Unit = { position ->
-
-    }
+    private val onClick: (Int) -> Unit = { position -> characterListPresenter.onCharacterClicked(getItem(position)) }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         CharacterViewHolder(DataBindingUtil.inflate(layoutInflater, R.layout.view_holder_character, parent, false))

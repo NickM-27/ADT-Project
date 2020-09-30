@@ -7,12 +7,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.nick.mowen.adtproject.R
 import com.nick.mowen.adtproject.character.Character
+import com.nick.mowen.adtproject.character.CharacterPresenter
 import com.nick.mowen.adtproject.databinding.ViewHolderCharacterBinding
 import com.nick.mowen.adtproject.skeleton.AbstractActivity
 
 class CharacterListAdapter(
     private val context: AbstractActivity,
-    private val characterListPresenter: CharacterListPresenter
+    private val characterListPresenter: CharacterPresenter
 ) : ListAdapter<Character, RecyclerView.ViewHolder>(Character.DIFF_CALLBACK) {
 
     private val layoutInflater: LayoutInflater by lazy { LayoutInflater.from(context) }

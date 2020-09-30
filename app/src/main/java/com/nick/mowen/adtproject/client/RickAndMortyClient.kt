@@ -28,6 +28,15 @@ class RickAndMortyClient {
         }
     }
 
+    suspend fun getCharacter(characterId: Long): Character? = withContext(Dispatchers.Default) {
+        try {
+            client.getCharacter(characterId).execute().body()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
     suspend fun getLocation(locationId: Long): Location? = withContext(Dispatchers.Default) {
         try {
             client.getLocation(locationId).execute().body()

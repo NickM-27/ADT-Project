@@ -7,10 +7,15 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.nick.mowen.adtproject.R
 import com.nick.mowen.adtproject.character.Character
+import com.nick.mowen.adtproject.character.CharacterPresenter
+import com.nick.mowen.adtproject.characterlist.CharacterListAdapter
 import com.nick.mowen.adtproject.databinding.DialogCharacterLocationBinding
+import com.nick.mowen.adtproject.skeleton.AbstractActivity
 
 class CharacterLocationDialog(private val selectedCharacter: Character) : BottomSheetDialogFragment() {
 
@@ -26,6 +31,13 @@ class CharacterLocationDialog(private val selectedCharacter: Character) : Bottom
         super.onViewCreated(view, savedInstanceState)
         binding.character = selectedCharacter
         viewModel.getLocation(selectedCharacter.location?.url?.toUri()?.lastPathSegment?.toLongOrNull() ?: -1).observe(viewLifecycleOwner, { binding.location = it })
+        binding.residents.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            adapter = CharacterListAdapter(
+                requireActivity() as AbstractActivity,
+                CharacterPresenter(requireActivity() as AbstractActivity)
+            ).also { adapter -> viewModel.getLocationResidents().observe(viewLifecycleOwner, { adapter.submitList(it) }) }
+        }
     }
 
     companion object {

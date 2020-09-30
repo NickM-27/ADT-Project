@@ -22,8 +22,4 @@ class CharacterListPresenter(
             Configuration.ORIENTATION_LANDSCAPE -> GridLayoutManager(context, 2)
             else -> LinearLayoutManager(context)
         }
-
-    fun onCharacterClicked(character: Character) {
-        CharacterLocationDialog(character).show(context.supportFragmentManager, CharacterLocationDialog.FRAGMENT_TAG)
-    }
 }

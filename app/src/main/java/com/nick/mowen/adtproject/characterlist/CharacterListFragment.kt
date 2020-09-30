@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.nick.mowen.adtproject.R
+import com.nick.mowen.adtproject.character.CharacterPresenter
 import com.nick.mowen.adtproject.databinding.FragmentCharacterListBinding
 import com.nick.mowen.adtproject.skeleton.AbstractActivity
 import com.nick.mowen.adtproject.skeleton.AbstractFragment
@@ -22,7 +23,7 @@ class CharacterListFragment : AbstractFragment() {
     override fun bindViews() {
         binding.characters.apply {
             layoutManager = presenter.getLayoutManager()
-            adapter = CharacterListAdapter(requireActivity() as AbstractActivity, presenter).also { adapter ->
+            adapter = CharacterListAdapter(requireActivity() as AbstractActivity, CharacterPresenter(requireActivity() as AbstractActivity)).also { adapter ->
                 viewModel.getCharacters().observe(viewLifecycleOwner, { adapter.submitList(it) })
             }
         }

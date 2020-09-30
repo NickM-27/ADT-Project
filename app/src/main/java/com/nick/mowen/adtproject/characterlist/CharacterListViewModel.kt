@@ -14,7 +14,7 @@ class CharacterListViewModel : ViewModel() {
 
     private val client: RickAndMortyClient by lazy { RickAndMortyClient() }
     private lateinit var characterData: CharacterData
-    private var characters: MutableLiveData<List<Character>> = MutableLiveData()
+    private val characters: MutableLiveData<List<Character>> = MutableLiveData()
 
     fun getCharacters(): LiveData<List<Character>> {
         viewModelScope.launch(Dispatchers.Default) {

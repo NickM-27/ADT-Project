@@ -6,11 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nick.mowen.adtproject.character.Character
 import com.nick.mowen.adtproject.databinding.FragmentCharacterListBinding
+import com.nick.mowen.adtproject.location.CharacterLocationDialog
 import com.nick.mowen.adtproject.skeleton.AbstractActivity
 import com.nick.mowen.adtproject.skeleton.AbstractPresenter
 
-class CharacterListPresenter(private val context: AbstractActivity, private val binding: FragmentCharacterListBinding, private val viewModel: CharacterListViewModel) :
-    AbstractPresenter(context) {
+class CharacterListPresenter(
+    private val context: AbstractActivity,
+    private val binding: FragmentCharacterListBinding,
+    private val viewModel: CharacterListViewModel
+) : AbstractPresenter(context) {
 
     fun getLayoutManager(): RecyclerView.LayoutManager =
         when (context.resources.configuration.orientation) {
@@ -20,6 +24,6 @@ class CharacterListPresenter(private val context: AbstractActivity, private val 
         }
 
     fun onCharacterClicked(character: Character) {
-
+        CharacterLocationDialog(character).show(context.supportFragmentManager, CharacterLocationDialog.FRAGMENT_TAG)
     }
 }

@@ -16,5 +16,5 @@ abstract class AbstractActivity : AppCompatActivity(), CoroutineScope by MainSco
         super.onCreate(savedInstanceState)
     }
 
-    abstract protected fun bindViews()
+    protected abstract fun bindViews()
 }

@@ -2,9 +2,8 @@ package com.nick.mowen.adtproject.extension
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
 import androidx.databinding.ViewDataBinding
@@ -45,6 +44,9 @@ fun ViewDataBinding.themeBinding(context: Context) {
     when (this) {
         is ActivityMainBinding -> {
             context.hideSystemShadows()
+
+            if (context is AppCompatActivity)
+                context.setSupportActionBar(toolbar)
         }
         is FragmentCharacterListBinding -> {
 

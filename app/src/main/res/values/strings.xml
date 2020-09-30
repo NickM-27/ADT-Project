@@ -5,4 +5,5 @@
     <string name="format_type">Type: %s</string>
     <string name="format_dimension"> Dimension: %s</string>
     <string name="action_toggle_theme">Toggle Theme</string>
+    <string name="title_residents">Residents</string>
 </resources>

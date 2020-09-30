@@ -74,6 +74,27 @@
             app:layout_constraintTop_toBottomOf="@+id/type"
             tools:text="@tools:sample/lorem" />
 
+        <ProgressBar
+            android:id="@+id/residentsLoading"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/residents"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/residents"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_residents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_residents"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dimension" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/residents"
             android:layout_width="0dp"
@@ -81,7 +102,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dimension"
+            app:layout_constraintTop_toBottomOf="@+id/title_residents"
             tools:listitem="@layout/view_holder_character" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

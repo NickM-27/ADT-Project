@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,7 +37,10 @@ class CharacterLocationDialog(private val selectedCharacter: Character) : Bottom
             adapter = CharacterListAdapter(
                 requireActivity() as AbstractActivity,
                 CharacterPresenter(requireActivity() as AbstractActivity)
-            ).also { adapter -> viewModel.getLocationResidents().observe(viewLifecycleOwner, { adapter.submitList(it) }) }
+            ).also { adapter -> viewModel.getLocationResidents().observe(viewLifecycleOwner, {
+                adapter.submitList(it)
+                binding.residentsLoading.isGone = true
+            }) }
         }
     }
 

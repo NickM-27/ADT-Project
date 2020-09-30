@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ADT Project</string>
+    <string name="format_species">Species: %s</string>
+    <string name="format_status"> Status: %s</string>
+    <string name="format_type">Type: %s</string>
+    <string name="format_dimension"> Dimension: %s</string>
 </resources>

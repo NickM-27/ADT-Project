@@ -60,6 +60,9 @@ dependencies {
     // Other
     implementation 'io.coil-kt:coil:1.0.0-rc3'
     implementation 'dev.chrisbanes:insetter-dbx:0.3.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"

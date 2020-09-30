@@ -1,6 +1,5 @@
 package com.nick.mowen.adtproject.client
 
-import com.nick.mowen.adtproject.character.Character
 import com.nick.mowen.adtproject.character.CharacterData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

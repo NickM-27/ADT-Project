@@ -1,6 +1,7 @@
 package com.nick.mowen.adtproject
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import com.nick.mowen.adtproject.characterlist.CharacterListFragment
@@ -23,6 +24,11 @@ class MainActivity : AbstractActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.themeBinding(this)
         supportFragmentManager.beginTransaction().replace(binding.content.id, characterListFragment).commit()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean =
